@@ -1,0 +1,30 @@
+node_modules
+
+# environments
+env
+venv
+.env
+.venv
+
+# IDE Specific files and folders
+.vscode
+.idea
+
+# files to ignore
+.DS_Store
+**/Desktop.ini
+**/*.local
+\!*
+
+# Log files
+**/*.log
+**/*.lock
+**/*.lockb
+**/*lock.json
+
+# python files
+.ruff_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
