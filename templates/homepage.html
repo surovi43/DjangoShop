@@ -1,5 +1,7 @@
 {% extends "layout.html" %} {% block content %}
-<section class="h-full flex-center">
-   <h1>Homepage</h1>
+<section class="min-h-screen p-12 flex-center flex-col items-center gap-y-6 text-foreground">
+   <h1 class="text-4xl">Homepage</h1>
+
+   <p class="text-lg">{{message}}</p>
 </section>
 {% endblock content %}

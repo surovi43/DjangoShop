@@ -48,11 +48,18 @@
                            {{ form.password }} {% include "includes/TogglePassword.html" %}
                         </div>
                         {% if form.password.errors %}
-                        <span class="text-sm text-destructive"> {{ form.password.errors.0 }} </span>
+                        <ul class="text-sm text-destructive space-y-1">
+                           {% for error in form.password.errors %}
+                           <li class="text-sm text-destructive">{{ error }}</li>
+                           {% endfor %}
+                        </ul>
+                        {% elif form.password.help_text %}
+                        <ul class="text-sm text-muted-foreground hidden group-focus-within:block">
+                           {% for text in form.password.help_text %}
+                           <li>{{text}}</li>
+                           {% endfor %}
+                        </ul>
                         {% endif %}
-                        <div class="text-sm text-muted-foreground hidden group-focus-within:block">
-                           Password must be at least 8 characters long.
-                        </div>
                      </div>
 
                      <!-- Confirm Password Field -->
@@ -70,7 +77,7 @@
                         {% endif %}
                      </div>
                   </div>
-                  <button class="btn btn-primary w-full">Create account</button>
+                  <button type="submit" class="btn btn-primary w-full">Create account</button>
                </form>
             </div>
          </div>

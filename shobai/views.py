@@ -8,7 +8,10 @@ from django.shortcuts import render
 
 def homepage(request):
     """View function for the homepage"""
-    return render(request, "homepage.html")
+    if request.user.is_authenticated:
+        return render(request, "homepage.html", {"message": "You are logged in!"})
+    else:
+        return render(request, "homepage.html", {"message": "You are not logged in!"})
 
 
 def about(request):

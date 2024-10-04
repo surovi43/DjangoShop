@@ -29,7 +29,12 @@ class User(AbstractBaseUser):
 
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    image = models.ImageField(upload_to="profiles", null=True, blank=True)
+    image = models.ImageField(
+        upload_to="profiles",
+        null=True,
+        blank=True,
+        default="profiles/user_placeholder.png",
+    )
     role = models.CharField(max_length=50, choices=ROLE_CHOICES, default="user")
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

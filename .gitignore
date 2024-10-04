@@ -1,4 +1,5 @@
 node_modules
+tailwind.config.js
 
 # environments
 env
@@ -21,6 +22,9 @@ venv
 **/*.lock
 **/*.lockb
 **/*lock.json
+
+# Database files
+*.sqlite3
 
 # python files
 .ruff_cache/

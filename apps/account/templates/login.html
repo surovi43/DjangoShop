@@ -39,44 +39,39 @@
                   </span>
                </div>
 
-               {% csrf_token %}
                <form method="POST">
+                  {% csrf_token %}
                   <div class="mb-8 grid w-full items-center gap-y-3">
-                     <div class="relative w-full">
-                        <div
-                           class="absolute left-3 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center"
-                        >
-                           <img src="{% static 'icons/User.svg' %}" alt="User" class="size-4" />
+                     <div class="space-y-2">
+                        <div class="relative w-full">
+                           <div
+                              class="absolute left-3 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center"
+                           >
+                              <img src="{% static 'icons/User.svg' %}" alt="User" class="size-4" />
+                           </div>
+                           {{ form.email }}
                         </div>
-                        <input
-                           id="email"
-                           placeholder="Enter email"
-                           autocomplete="email"
-                           type="text"
-                           name="email"
-                           class="input pl-10"
-                        />
+                        {% if form.email.errors %}
+                        <span class="text-sm text-destructive">{{ form.email.errors.0 }}</span>
+                        {% endif %}
                      </div>
 
-                     <div class="group space-y-2">
+                     <div class="space-y-2">
                         <div class="relative w-full">
                            <div
                               class="absolute left-3 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center"
                            >
                               <img src="{% static 'icons/Lock.svg' %}" alt="Lock" class="size-4" />
                            </div>
-                           <input
-                              id="password"
-                              placeholder="Enter password"
-                              type="password"
-                              name="password"
-                              class="password-field px-10"
-                           />
-                           {% include 'includes/TogglePassword.html' %}
+                           {{ form.password }} {% include 'includes/TogglePassword.html' %}
                         </div>
-                        <div class="text-sm text-muted-foreground hidden group-focus-within:block">
-                           Password must be at least 8 characters long.
-                        </div>
+                        {% if form.password.errors %}
+                        <ul class="text-sm text-destructive space-y-1">
+                           {% for error in form.password.errors %}
+                           <li class="text-sm text-destructive">{{ error }}</li>
+                           {% endfor %}
+                        </ul>
+                        {% endif %}
                      </div>
 
                      <div class="mt-3 flex flex-wrap items-center justify-between gap-x-6 text-sm">
@@ -117,7 +112,8 @@
                         <button class="btn btn-link" type="button">Forgot password?</button>
                      </div>
                   </div>
-                  <button class="btn btn-primary w-full" type="button">Login</button>
+
+                  <button type="submit" class="btn btn-primary w-full">Login</button>
                </form>
             </div>
          </div>
@@ -125,7 +121,9 @@
          <div class="flex-center gap-x-2 px-3">
             <span>Don't have an account?</span>
             <div class="inline-block relative">
-               <a href="{% url 'register' %}" class="text-foreground outline-none">Create one</a>
+               <a href="{% url 'register' %}" class="text-foreground outline-none bg-red"
+                  >Create one</a
+               >
                {% include 'includes/Underline.html' %}
             </div>
          </div>
