@@ -16,6 +16,7 @@
                <form method="POST">
                   {% csrf_token %}
                   <div class="mb-8 grid w-full items-center gap-5">
+                     <!-- First-Name and Last-Name Field -->
                      <div class="flex flex-wrap gap-5">
                         <div class="flex-grow space-y-2">
                            <label for="{{ form.fname.id_for_label }}">First name</label>
@@ -32,6 +33,7 @@
                         </div>
                      </div>
 
+                     <!-- Email Field -->
                      <div class="w-full flex-grow space-y-2">
                         <label for="{{ form.email.id_for_label }}">Email</label>
                         {{ form.email }} {% if form.email.errors %}
@@ -39,6 +41,7 @@
                         {% endif %}
                      </div>
 
+                     <!-- Password Field -->
                      <div class="group space-y-2">
                         <label for="{{ form.password.id_for_label }}">Password</label>
                         <div class="relative w-full">
@@ -52,6 +55,7 @@
                         </div>
                      </div>
 
+                     <!-- Confirm Password Field -->
                      <div class="group space-y-2">
                         <label for="{{ form.confirm_password.id_for_label }}">
                            Confirm Password

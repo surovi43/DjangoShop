@@ -4,29 +4,30 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('account', '0002_user_is_active_alter_user_password_alter_user_role'),
+        ("account", "0002_user_is_active_alter_user_password_alter_user_role"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='user',
-            name='is_active',
+            model_name="user",
+            name="is_active",
         ),
         migrations.AddField(
-            model_name='user',
-            name='is_staff',
+            model_name="user",
+            name="is_staff",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='user',
-            name='is_superuser',
+            model_name="user",
+            name="is_superuser",
             field=models.BooleanField(default=False),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='image',
-            field=models.ImageField(blank=True, default='images/User.png', null=True, upload_to='profile'),
+            model_name="user",
+            name="image",
+            field=models.ImageField(
+                blank=True, default="images/User.png", null=True, upload_to="profile"
+            ),
         ),
     ]

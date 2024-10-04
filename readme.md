@@ -39,6 +39,10 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+```sh
+python manage.py tailwind install
+```
+
 ## Run the Project
 
 To start both the Django development server and Tailwind watch mode, run the following commands:

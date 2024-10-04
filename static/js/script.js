@@ -1,8 +1,9 @@
 function togglePasswordVisibility(element) {
-   const isPasswordVisible = element.getAttribute("data-password") === "visible";
+   const icon = element.children[0];
+   const isPasswordVisible = icon.getAttribute("data-password") === "visible";
 
    // toggle eye icon
-   element.setAttribute("data-password", isPasswordVisible ? "hidden" : "visible");
+   icon.setAttribute("data-password", isPasswordVisible ? "hidden" : "visible");
 
    // toggle password input type
    const passwordInput = element.parentElement.querySelector(".password-field");
