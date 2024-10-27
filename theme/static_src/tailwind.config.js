@@ -58,6 +58,7 @@ module.exports = {
          },
          boxShadow: {
             toast: "0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);",
+            card: "0 0 12px 4px rgba(0, 0, 0, 0.05)",
          },
          keyframes: {
             "toast-appear": {

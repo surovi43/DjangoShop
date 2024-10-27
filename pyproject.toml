@@ -1,0 +1,14 @@
+[project]
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+
+
+[tool.djlint]
+profile = "django"
+close_void_tags = true
+indent = 3
+max_blank_lines = 2
+max_line_length = 100

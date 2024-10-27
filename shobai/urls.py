@@ -25,8 +25,10 @@ from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.homepage, name="home"),
-    # Include the account app URLs
-    path("", include("apps.account.urls")),
+    # Include allauth URLs
+    path("accounts/", include("allauth.urls")),
+    # Include the my app URLs
+    path("", include("apps.users.urls")),
     # For development only
     path("__reload__/", include("django_browser_reload.urls")),
 ]

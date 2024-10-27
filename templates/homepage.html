@@ -1,7 +1,6 @@
-{% extends "layout.html" %} {% block content %}
-<section class="min-h-screen p-12 flex-center flex-col items-center gap-y-6 text-foreground">
-   <h1 class="text-4xl">Homepage</h1>
-
-   <p class="text-lg">{{message}}</p>
-</section>
-{% endblock content %}
+{% extends "layouts/root_layout.html" %}
+{% comment %} {% block slot %}
+   <main>
+      Main slot
+   </main>
+{% endblock content %} {% endcomment %}
