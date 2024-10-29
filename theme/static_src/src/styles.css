@@ -6,8 +6,8 @@
    :root {
       --surface: 0 0% 96%;
       --background: 0 0% 100%;
-      --foreground: 213 33% 13%;
-      --primary: 222 100% 61%;
+      --foreground: 213 33% 13%; /* #16202c */
+      --primary: 217 91% 60%;
       --primary-foreground: 0 0% 100%;
       --secondary: 220 14.3% 95.9%;
       --secondary-foreground: 213 33% 13%;

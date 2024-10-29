@@ -1,6 +1,6 @@
-{% extends "layout.html" %}
+{% extends "layouts/auth_layout.html" %}
 {% load static %}
-{% block content %}
+{% block body %}
    <main class="min-h-screen grid lg:grid-cols-2 md:gap-y-6 divide-x">
       <div class="flex flex-col gap-y-8 p-4 sm:p-6">
          {% include "snippets/Logo.html" with class="h-6" %}
@@ -89,4 +89,4 @@
          <div class="w-full p-12"></div>
       </div>
    </main>
-{% endblock content %}
+{% endblock body %}

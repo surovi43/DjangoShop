@@ -57,6 +57,11 @@ class User(AbstractBaseUser, PermissionsMixin):
             return True
         return False
 
+    class Meta:
+        db_table = "users"
+        verbose_name = "User"
+        verbose_name_plural = "Users"
+
 
 # ===================================
 # Address Model
@@ -69,6 +74,11 @@ class Address(models.Model):
     zone = models.CharField(max_length=100)
     contact = models.CharField(max_length=20)
 
+    class Meta:
+        db_table = "addresses"
+        verbose_name = "Address"
+        verbose_name_plural = "Addresses"
+
 
 # ===================================
 # Merchant Application
@@ -76,14 +86,22 @@ class Address(models.Model):
 class MerchantApplication(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nid = models.CharField(max_length=20)
-    professional_photo = models.ImageField(upload_to="merchant_photos/")
-    business_email = models.EmailField()
+    photo = models.ImageField(upload_to="merchant_photos/")
+    email = models.EmailField()
     contact = models.CharField(max_length=20)
+    date_applied = models.DateTimeField(auto_now_add=True)
+    comments = models.TextField(blank=True, null=True)
     status = models.CharField(
         max_length=10,
         choices=[("PENDING", "Pending"), ("APPROVED", "Approved"), ("REJECTED", "Rejected")],
         default="PENDING",
     )
+
+    class Meta:
+        db_table = "merchant_applications"
+        verbose_name = "Merchant Application"
+        verbose_name_plural = "Merchant Applications"
+        ordering = ["-date_applied"]
 
     def __str__(self):
         return f"{self.business_email} - {self.status}"

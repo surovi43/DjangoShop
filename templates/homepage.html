@@ -1,6 +1,68 @@
 {% extends "layouts/root_layout.html" %}
-{% comment %} {% block slot %}
-   <main>
-      Main slot
-   </main>
-{% endblock content %} {% endcomment %}
+
+{% load static %}
+
+{% block slot %}
+   <section class="col-start-2 col-span-1 bg-white flex-1 rounded-lg shadow-card">
+      <div class="relative grid grid-cols-[42.75rem,1fr] divide-x h-full">
+         <main class="h-full">
+            <!-- Search Bar -->
+            <div class="h-16 px-6 py-2.5 shadow">
+               <div class="w-full relative">
+                  <img src="{% static 'images/Search.svg' %}"
+                       width="4"
+                       height="4"
+                       alt="Search Icon"
+                       class="size-4 absolute left-4 top-1/2 -translate-y-1/2" />
+                  <input type="text"
+                         name="search"
+                         placeholder="Search for products, stores"
+                         class="pl-10 pr-4 h-11 w-full bg-gray-100 placeholder-gray-500 text-foreground outline-none focus:ring-0 border-0 rounded-full" />
+               </div>
+            </div>
+
+            <!-- Post List -->
+            <div class="p-6 h-full flex flex-col gap-y-3 overflow-y-auto">
+
+               {% if user.is_authenticated %}
+                  <div class="px-6 py-4 flex gap-x-4 shadow-card rounded-lg bg-white">
+                     <img src="media/{{ user.image }}"
+                          width="40"
+                          height="40"
+                          alt="Profile Picture"
+                          class="size-12 rounded-full flex-shrink-0 border border-gray-200" />
+
+                     <div class="w-full">
+                        <textarea name="content"
+                                  placeholder="What's on your mind?"
+                                  class="h-12 w-full px-4 py-3 border-0 focus:ring-0 bg-gray-50 rounded-lg"></textarea>
+                        <div class="flex justify-between items-center text-sm">
+                           <button class="flex items-center gap-x-2 text-foreground font-semibold">
+                              <img src="{% static 'images/At-sign.svg' %}"
+                                   width="16"
+                                   height="16"
+                                   alt="At-sign"
+                                   class="size-4 flex-shrink-0" />
+                              <span>Tag products</span>
+                           </button>
+
+                           <button class="px-4 py-2 min-w-20 rounded-full bg-primary text-primary-foreground">Post</button>
+                        </div>
+                     </div>
+                  </div>
+               {% endif %}
+
+               {% include "snippets/post.html" %}
+               {% include "snippets/post.html" %}
+               {% include "snippets/post.html" %}
+               {% include "snippets/post.html" %}
+               {% include "snippets/post.html" %}
+            </div>
+
+         </main>
+         <main class="py-12 h-full flex justify-center">
+            Advertisement
+         </main>
+      </div>
+   </section>
+{% endblock slot %}

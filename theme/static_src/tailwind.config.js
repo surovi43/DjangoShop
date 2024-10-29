@@ -61,6 +61,10 @@ module.exports = {
             card: "0 0 12px 4px rgba(0, 0, 0, 0.05)",
          },
          keyframes: {
+            "scale-in": {
+               "0%": { opacity: 0, transform: "scale(0.5)" },
+               "100%": { opacity: 1, transform: "scale(1)" },
+            },
             "toast-appear": {
                from: { transform: "translate3d(0,-200%,0) scale(.6)", opacity: "0.5" },
                to: { transform: "translate3d(0,0,0) scale(1)", opacity: "1" },
@@ -84,6 +88,7 @@ module.exports = {
             },
          },
          animation: {
+            "scale-in": "scale-in 150ms cubic-bezier(0.2, 0, 0.13, 1.5) forwards",
             "toast-appear": "toast-appear 350ms cubic-bezier(0.21, 1.02, 0.73, 1) forwards",
             "toast-tick": "toast-scale-tick 200ms ease-out 200ms forwards",
             "toast-circle":
